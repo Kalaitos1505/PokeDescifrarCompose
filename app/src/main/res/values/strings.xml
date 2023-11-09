@@ -1,0 +1,54 @@
+<resources>
+    /*NEW ONES*/
+    /*MANIFEST*/
+    <string name="app_name">PokeDescifrar</string>
+
+    /*Title Screen*/
+    <string name="start_game_esp">Iniciar Partida</string>
+    <string name="settings_esp">Opciones</string>
+    <string name="exit_esp">Salir</string>
+
+    /*Title Screen Dialog*/
+    <string name="dialog_alert_esp">Atención</string>
+    <string name="exit_game_esp">¿Salir del juego?</string>
+    <string name="confirm_esp">Confirmar</string>
+    <string name="cancel_esp">Cancelar</string>
+
+    /*Game Screen*/
+    <string name="score_esp">Puntuación: %d</string>
+    <string name="word_count">%d/10</string>
+    <string name="final_score">%1$d/100</string>
+    <string name="wrong_word_esp">¡Error!, ¡Vuelve a intentarlo!</string>
+    <string name="enter_word_esp">Introduce tu palabra</string>
+    <string name="game_description_esp">Descifra la palabra usando todas las letras</string>
+    <string name="skip_esp">Saltar</string>
+
+    /*Settings Screen*/
+    <string name="music_esp">Música</string>
+    <string name="sfx_esp">Efectos de Sonido</string>
+
+    /*About Screen*/
+    <string name="patch_notes_esp">Notas de parche</string>
+    <string name="credits_esp">Créditos</string>
+
+    /*OLD ONES*/
+
+
+    <string name="game_end">Fin de la partida</string>
+    <string name="you_scored">"Has conseguido: %d puntos"</string>
+    <string name="no_score_message">Debes de ser miembro del team Rocket...</string>
+    <string name="low_score_message">No está mal, aunque podrías haberlo hecho mejor</string>
+    <string name="medium_score_message">Bien hecho, conoces bastante bien a los pokemon</string>
+    <string name="high_score_message">¡Eres un verdadero ESPECIALISTA pokémon!</string>
+
+    <string name="titulo_confirmacion">Alerta</string>
+    <string name="texto_confirmacion">¿Estás seguro de que quieres volver al menú principal? \n El progreso se perderá</string>
+    <string name="returnMenu">Volver al menu</string>
+    <string name="furretTitle">Furret está caminando</string>
+    <string name="furretDialog">¿Quieres que furret deje de caminar?</string>
+    <string name="Si">Si</string>
+    <string name="No">No</string>
+
+
+
+</resources>

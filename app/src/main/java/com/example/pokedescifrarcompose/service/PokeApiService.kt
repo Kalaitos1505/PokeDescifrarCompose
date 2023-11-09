@@ -1,0 +1,16 @@
+package com.example.pokedescifrarcompose.service
+
+import com.example.pokedescifrarcompose.entities.Pokemon
+import retrofit2.Call
+import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Path
+
+interface PokeApiService {
+
+    @GET("pokemon/{id}")
+    suspend fun getPokemon(@Path("id") pokemonId: Int): Response<Pokemon>
+
+    @GET("pokemon-species")
+    suspend fun getMaxPokemonCount(): Response<PokemonSpeciesResponse>
+}

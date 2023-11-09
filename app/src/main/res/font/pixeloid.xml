@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/pixeloid_mono"
+        app:fontStyle="normal"
+        app:fontWeight="400"
+        app:font="@font/pixeloid_mono"/>
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/pixeloid_sans"
+        app:fontStyle="normal"
+        app:fontWeight="400"
+        app:font="@font/pixeloid_sans"/>
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        android:font="@font/pixeloid_sans_bold"
+        app:fontStyle="normal"
+        app:fontWeight="700"
+        app:font="@font/pixeloid_sans_bold"/>
+
+</font-family>

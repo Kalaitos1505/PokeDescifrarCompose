@@ -1,15 +1,16 @@
-package com.example.pokedescifrarcompose.entities
+package com.example.pokedescifrarcompose.data.viewmodel
 
 import android.util.Log
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.pokedescifrarcompose.controller.translateType
-import com.example.pokedescifrarcompose.repositories.PokemonRepository
+import com.example.pokedescifrarcompose.data.controller.translateType
+import com.example.pokedescifrarcompose.data.entities.GameUIState
+import com.example.pokedescifrarcompose.data.entities.MAX_NO_OF_WORDS
+import com.example.pokedescifrarcompose.data.entities.Pokemon
+import com.example.pokedescifrarcompose.data.entities.SCORE_INCREASE
+import com.example.pokedescifrarcompose.data.repositories.PokemonRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -46,9 +47,9 @@ class GameViewModel(private val pokemonRepository: PokemonRepository) : ViewMode
     private fun startGame() {
         resetGame()
         isPokemonListLoaded.observeForever(object : Observer<Boolean> {
-            override fun onChanged(isLoaded: Boolean) {
+            override fun onChanged(value: Boolean) {
                 isPokemonListLoaded.removeObserver(this)
-                if (isLoaded && pokemonList.isNotEmpty()) {
+                if (value && pokemonList.isNotEmpty()) {
                     getNextWord()
                 } else {
                     Log.d("PokeLista", "La lista está vacía o no se ha cargado")

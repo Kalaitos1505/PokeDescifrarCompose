@@ -1,10 +1,9 @@
-package com.example.pokedescifrarcompose.controller
+package com.example.pokedescifrarcompose.data.controller
 
 import android.content.Context
 import android.media.AudioAttributes
 import android.media.MediaPlayer
 import android.media.SoundPool
-import android.util.Log
 import androidx.annotation.RawRes
 import com.example.pokedescifrarcompose.R
 

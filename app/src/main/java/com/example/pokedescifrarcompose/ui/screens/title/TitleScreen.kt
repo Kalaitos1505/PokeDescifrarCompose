@@ -16,8 +16,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.pokedescifrarcompose.R
-import com.example.pokedescifrarcompose.controller.SoundManager
-import com.example.pokedescifrarcompose.entities.SoundViewModel
+import com.example.pokedescifrarcompose.data.controller.SoundManager
+import com.example.pokedescifrarcompose.data.viewmodel.SoundViewModel
 import com.example.pokedescifrarcompose.ui.screens.PokeDescifrarUI
 import kotlin.system.exitProcess
 
@@ -69,6 +69,7 @@ fun TitleScreen(navigation: NavController, soundViewModel: SoundViewModel) {
             TitleExitDialog(
                 onConfirmClick = {
                     SoundManager.playSFX(R.raw.runaway)
+                    Thread.sleep(800)
                     activity?.finish()
                     exitProcess(0)
 

@@ -3,20 +3,11 @@ package com.example.pokedescifrarcompose.ui.screens.end
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
-import com.example.pokedescifrarcompose.entities.GameViewModel
-import com.example.pokedescifrarcompose.entities.Pokemon
-import com.example.pokedescifrarcompose.repositories.PokemonRepository
-import com.example.pokedescifrarcompose.ui.screens.PokeDescifrarUI
-import com.example.pokedescifrarcompose.ui.screens.misc.PokeText
+import com.example.pokedescifrarcompose.data.entities.Pokemon
 import com.example.pokedescifrarcompose.ui.theme.pixeloidSansFamily
 
 @Composable
@@ -43,7 +34,7 @@ fun GameEndScreen(
         )
         endWords.forEach() { entry ->
             Text(
-                text = "${entry.key.name} : ${entry.value}",
+                text = " ${entry.key.name} : ${if(entry.value) {"Correcto"} else {"Incorrecto"}}",
                 style = TextStyle(
                     fontSize = 18.sp,
                     fontFamily = pixeloidSansFamily

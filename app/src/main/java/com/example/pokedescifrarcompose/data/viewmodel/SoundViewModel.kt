@@ -1,4 +1,4 @@
-package com.example.pokedescifrarcompose.entities
+package com.example.pokedescifrarcompose.data.viewmodel
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf

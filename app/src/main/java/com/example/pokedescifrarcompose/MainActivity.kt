@@ -2,6 +2,7 @@ package com.example.pokedescifrarcompose
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.animation.EnterTransition
@@ -9,11 +10,10 @@ import androidx.compose.animation.ExitTransition
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.viewbinding.BuildConfig
-import com.example.pokedescifrarcompose.controller.SoundManager
-import com.example.pokedescifrarcompose.entities.GameViewModel
-import com.example.pokedescifrarcompose.entities.SoundViewModel
-import com.example.pokedescifrarcompose.repositories.PokemonRepository
+import com.example.pokedescifrarcompose.data.controller.SoundManager
+import com.example.pokedescifrarcompose.data.viewmodel.GameViewModel
+import com.example.pokedescifrarcompose.data.viewmodel.SoundViewModel
+import com.example.pokedescifrarcompose.data.repositories.PokemonRepository
 import com.example.pokedescifrarcompose.ui.screens.about.AboutScreen
 import com.example.pokedescifrarcompose.ui.screens.game.GameScreen
 import com.example.pokedescifrarcompose.ui.screens.settings.SettingsScreen
@@ -39,11 +39,22 @@ class MainActivity : ComponentActivity() {
                     enterTransition = { EnterTransition.None},
                     exitTransition = { ExitTransition.None },
                 ) {
-                    composable("TitleScreen") { TitleScreen(navigation = navController, soundViewModel) }
-                    composable("AboutScreen") { AboutScreen(navigation = navController)}
-                    composable("SettingsScreen") { SettingsScreen(navigation = navController, soundViewModel)}
-                    composable("GameScreen") { GameScreen(navigation = navController, soundViewModel = soundViewModel, gameViewModel = GameViewModel(PokemonRepository()))}
-                    composable("EndScreen") { }
+                    composable("TitleScreen") {
+                        BackHandler(true) {}
+                        TitleScreen(navigation = navController, soundViewModel) 
+                    }
+                    composable("AboutScreen") {
+                        BackHandler(true) {}
+                        AboutScreen(navigation = navController)
+                    }
+                    composable("SettingsScreen") {
+                        BackHandler(true) {}
+                        SettingsScreen(navigation = navController, soundViewModel)
+                    }
+                    composable("GameScreen") {
+                        BackHandler(false) {}
+                        GameScreen(navigation = navController, soundViewModel = soundViewModel, gameViewModel = GameViewModel(PokemonRepository()))
+                    }
                 }
             }
         }

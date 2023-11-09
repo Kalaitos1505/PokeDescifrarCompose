@@ -1,4 +1,4 @@
-package com.example.pokedescifrarcompose.entities
+package com.example.pokedescifrarcompose.data.entities
 
 data class GameUIState(
     val currentScrambledWord: String = "",

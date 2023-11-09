@@ -1,7 +1,6 @@
 package com.example.pokedescifrarcompose.service
 
-import com.example.pokedescifrarcompose.entities.Pokemon
-import retrofit2.Call
+import com.example.pokedescifrarcompose.data.entities.Pokemon
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

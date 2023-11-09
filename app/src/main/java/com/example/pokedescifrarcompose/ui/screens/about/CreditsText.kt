@@ -10,8 +10,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.pokedescifrarcompose.entities.Credits
-import com.example.pokedescifrarcompose.entities.creditsList
+import com.example.pokedescifrarcompose.data.entities.Credits
+import com.example.pokedescifrarcompose.data.entities.creditsList
 import com.example.pokedescifrarcompose.ui.screens.misc.PokeText
 import com.example.pokedescifrarcompose.ui.theme.PokeRed
 

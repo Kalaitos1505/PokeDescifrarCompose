@@ -1,9 +1,9 @@
-package com.example.pokedescifrarcompose.repositories
+package com.example.pokedescifrarcompose.data.repositories
 
 import android.util.Log
-import com.example.pokedescifrarcompose.entities.Pokemon
-import com.example.pokedescifrarcompose.entities.PokemonType
-import com.example.pokedescifrarcompose.entities.Type
+import com.example.pokedescifrarcompose.data.entities.Pokemon
+import com.example.pokedescifrarcompose.data.entities.PokemonType
+import com.example.pokedescifrarcompose.data.entities.Type
 import com.example.pokedescifrarcompose.service.PokeApiService
 import com.example.pokedescifrarcompose.service.RetrofitClient
 import retrofit2.Response
@@ -87,16 +87,6 @@ class PokemonRepository {
         }
         Log.e("PokeLista", "ResponseCode: ${response.code()}")
         return null
-    }
-
-    suspend fun getPokemon(id: Int): Pokemon? {
-        val response: Response<Pokemon> = pokeApiService.getPokemon(id)
-        if (response.isSuccessful) {
-            return response.body()
-        } else {
-            Log.e("PokeLista","Error al obtener pokemon")
-            return null
-        }
     }
 }
 

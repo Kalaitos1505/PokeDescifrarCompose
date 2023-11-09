@@ -18,8 +18,8 @@ import com.example.pokedescifrarcompose.ui.screens.appbars.BottomBar
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.example.pokedescifrarcompose.controller.SoundManager
-import com.example.pokedescifrarcompose.entities.SoundViewModel
+import com.example.pokedescifrarcompose.data.controller.SoundManager
+import com.example.pokedescifrarcompose.data.viewmodel.SoundViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

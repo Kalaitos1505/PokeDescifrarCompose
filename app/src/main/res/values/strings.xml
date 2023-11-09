@@ -13,6 +13,11 @@
     <string name="exit_game_esp">¿Salir del juego?</string>
     <string name="confirm_esp">Confirmar</string>
     <string name="cancel_esp">Cancelar</string>
+    
+    /*Game Screen Dialog*/
+    <string name="help_dialog_title_esp">Ayuda</string>
+    <string name="exit_dialog_esp">¿Quieres volver al menú?\n El progreso se perderá</string>
+    <string name="help_dialog_esp">Las letras del pokemon están desordenadas, tu trabajo consiste en ordenarlas, ¡si estás jugando en el modo normal, la letra mayúscula será la primera de todas!</string>
 
     /*Game Screen*/
     <string name="score_esp">Puntuación: %d</string>
@@ -36,13 +41,12 @@
 
     <string name="game_end">Fin de la partida</string>
     <string name="you_scored">"Has conseguido: %d puntos"</string>
-    <string name="no_score_message">Debes de ser miembro del team Rocket...</string>
+    <string name="no_score_message">Debes de ser miembro del team Rocket…</string>
     <string name="low_score_message">No está mal, aunque podrías haberlo hecho mejor</string>
     <string name="medium_score_message">Bien hecho, conoces bastante bien a los pokemon</string>
     <string name="high_score_message">¡Eres un verdadero ESPECIALISTA pokémon!</string>
 
     <string name="titulo_confirmacion">Alerta</string>
-    <string name="texto_confirmacion">¿Estás seguro de que quieres volver al menú principal? \n El progreso se perderá</string>
     <string name="returnMenu">Volver al menu</string>
     <string name="furretTitle">Furret está caminando</string>
     <string name="furretDialog">¿Quieres que furret deje de caminar?</string>

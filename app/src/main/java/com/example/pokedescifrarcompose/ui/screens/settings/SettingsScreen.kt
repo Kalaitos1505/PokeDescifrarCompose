@@ -17,8 +17,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pokedescifrarcompose.R
-import com.example.pokedescifrarcompose.controller.SoundManager
-import com.example.pokedescifrarcompose.entities.SoundViewModel
+import com.example.pokedescifrarcompose.data.controller.SoundManager
+import com.example.pokedescifrarcompose.data.viewmodel.SoundViewModel
 import com.example.pokedescifrarcompose.ui.screens.PokeDescifrarUI
 import com.example.pokedescifrarcompose.ui.screens.appbars.BottomAppBarButton
 

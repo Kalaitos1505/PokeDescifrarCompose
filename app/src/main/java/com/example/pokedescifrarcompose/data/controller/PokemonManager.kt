@@ -1,4 +1,4 @@
-package com.example.pokedescifrarcompose.controller
+package com.example.pokedescifrarcompose.data.controller
 
 import androidx.compose.ui.graphics.Color
 import com.example.pokedescifrarcompose.ui.theme.PokeTypeBug

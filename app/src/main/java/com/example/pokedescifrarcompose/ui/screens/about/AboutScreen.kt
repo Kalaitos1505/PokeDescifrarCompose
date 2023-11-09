@@ -1,16 +1,13 @@
 package com.example.pokedescifrarcompose.ui.screens.about
 
-import android.util.Log
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
-import com.example.pokedescifrarcompose.ui.screens.PokeDescifrarUI
-import com.example.pokedescifrarcompose.entities.patchNoteList
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.example.pokedescifrarcompose.entities.creditsList
+import androidx.navigation.NavController
+import com.example.pokedescifrarcompose.data.entities.creditsList
+import com.example.pokedescifrarcompose.data.entities.patchNoteList
 
 @Composable
 fun AboutScreen(navigation: NavController) {

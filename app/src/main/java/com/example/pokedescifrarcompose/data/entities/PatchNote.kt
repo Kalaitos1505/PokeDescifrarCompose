@@ -29,6 +29,7 @@ data class Credits(
 val creditsList = listOf(
     Credits("Author \uD83D\uDCDD", "Kalaitos"),
     Credits("PokeAPI ©", "https://pokeapi.co/"),
-    Credits("Music and SFX \uD83C\uDFB5", "THe Pokemon Company, Nintendo and Atlus"),
-    Credits("Thanks to my testers ✨", "Nairy89, Greenlass, Blackmore, Srmonass and Peiball")
+    Credits("Music and SFX \uD83C\uDFB5", "The Pokemon Company, Nintendo and Atlus"),
+    Credits("Thanks to my testers ✨", "Nairy89, Greenlass, Blackmore, Srmonass and Peiball"),
+    Credits("License \uD83D\uDCDC", "Decodemon © 2023   by   Kalaitos is licensed under CC BY-NC-SA 4.0 ")
 )

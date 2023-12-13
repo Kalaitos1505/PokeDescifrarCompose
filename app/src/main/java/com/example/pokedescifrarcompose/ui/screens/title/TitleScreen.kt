@@ -17,18 +17,21 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.pokedescifrarcompose.R
 import com.example.pokedescifrarcompose.data.controller.SoundManager
-import com.example.pokedescifrarcompose.data.viewmodel.SoundViewModel
+import com.example.pokedescifrarcompose.data.viewmodel.BottomBarViewModel
 import com.example.pokedescifrarcompose.ui.screens.PokeDescifrarUI
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import kotlin.system.exitProcess
 
 
 @Composable
-fun TitleScreen(navigation: NavController, soundViewModel: SoundViewModel) {
+fun TitleScreen(navigation: NavController, bottomBarViewModel: BottomBarViewModel) {
+    bottomBarViewModel.setAboutEnabled(true)
     val activity = (LocalContext.current as? Activity)
     var showDialog by remember { mutableStateOf(false) }
     PokeDescifrarUI(
         navigation = navigation,
-        soundViewModel = soundViewModel
+        bottomBarViewModel = bottomBarViewModel
     ) {
         TitleText()
         TitleImage(modifier = Modifier.size(200.dp))
@@ -68,12 +71,13 @@ fun TitleScreen(navigation: NavController, soundViewModel: SoundViewModel) {
         if (showDialog) {
             TitleExitDialog(
                 onConfirmClick = {
+
                     SoundManager.playSFX(R.raw.runaway)
-                    Thread.sleep(800)
+                    runBlocking {
+                        delay(1500)
+                    }
                     activity?.finish()
                     exitProcess(0)
-
-
                 },
                 onDismissClick = {
                     SoundManager.playSFX(R.raw.button)

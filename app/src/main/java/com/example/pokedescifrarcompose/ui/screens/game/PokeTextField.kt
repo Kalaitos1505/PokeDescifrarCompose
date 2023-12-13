@@ -18,7 +18,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.pokedescifrarcompose.R
-import com.example.pokedescifrarcompose.data.viewmodel.SoundViewModel
+import com.example.pokedescifrarcompose.data.viewmodel.BottomBarViewModel
 import com.example.pokedescifrarcompose.ui.screens.PokeDescifrarUI
 import com.example.pokedescifrarcompose.ui.theme.PokeRed
 import com.example.pokedescifrarcompose.ui.theme.pixeloidSansFamily
@@ -68,7 +68,7 @@ fun PokeTextField(
 @Composable
 @Preview
 fun PokeTextFieldPreview() {
-    PokeDescifrarUI(navigation = rememberNavController(), soundViewModel = SoundViewModel()) {
+    PokeDescifrarUI(navigation = rememberNavController(), bottomBarViewModel = BottomBarViewModel()) {
         PokeTextField(
             userGuess = "a",
             onUserGuessChanged = {},

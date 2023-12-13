@@ -21,6 +21,7 @@ import com.example.pokedescifrarcompose.R
 fun BottomBar(
     isMusicEnabled: Boolean,
     isSoundEnabled: Boolean,
+    isAboutEnabled: Boolean,
     onMusicToggleCLick: (Boolean) -> Unit,
     onSoundToggleClick: (Boolean) -> Unit,
     navigation: NavController
@@ -56,10 +57,12 @@ fun BottomBar(
                     isSelected = isSoundEnabled
                 ) { onSoundToggleClick(!isSoundEnabled) }
             }
-            Row(horizontalArrangement = Arrangement.End) {
-                BottomAppBarButton(
-                    Icons.Filled.Info
-                ) { navigation.navigate("AboutScreen") }
+            if (isAboutEnabled) {
+                Row(horizontalArrangement = Arrangement.End) {
+                    BottomAppBarButton(
+                        Icons.Filled.Info
+                    ) { navigation.navigate("AboutScreen") }
+                }
             }
         }
     }

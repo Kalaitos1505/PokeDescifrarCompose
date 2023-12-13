@@ -1,6 +1,5 @@
 package com.example.pokedescifrarcompose.data.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
@@ -51,8 +50,6 @@ class GameViewModel(private val pokemonRepository: PokemonRepository) : ViewMode
                 isPokemonListLoaded.removeObserver(this)
                 if (value && pokemonList.isNotEmpty()) {
                     getNextWord()
-                } else {
-                    Log.d("PokeLista", "La lista está vacía o no se ha cargado")
                 }
             }
         })
@@ -66,14 +63,16 @@ class GameViewModel(private val pokemonRepository: PokemonRepository) : ViewMode
     fun checkUserGuess() {
         if (uiState.value.currentWordCount <= MAX_NO_OF_WORDS) {
             if (uiState.value.userGuess.equals(pokemonList[currentPokemonIndex].name, ignoreCase = true)) {
-                Log.e("PokeLista","Entra al userGuess")
                 val updatedScore = _uiState.value.score.plus(SCORE_INCREASE)
                 updateGameState(updatedScore)
-                currentPokemonIndex++
-                getNextWord()
-                if (uiState.value.currentWordCount == MAX_NO_OF_WORDS) {
+                correctWords.put(pokemonList[currentPokemonIndex], true)
+                if (correctWords.size == MAX_NO_OF_WORDS) {
                     gameOver()
+                } else {
+                    currentPokemonIndex++
+                    getNextWord()
                 }
+
             } else {
                 _uiState.update { currentState ->
                     currentState.copy(isGuessedWordWrong = true)
@@ -83,10 +82,10 @@ class GameViewModel(private val pokemonRepository: PokemonRepository) : ViewMode
     }
 
     fun skipWord() {
+        correctWords.put(pokemonList[currentPokemonIndex], false)
         if (uiState.value.currentWordCount == MAX_NO_OF_WORDS) {
              gameOver()
         } else {
-            correctWords.put(pokemonList[currentPokemonIndex], false)
             updateGameState(uiState.value.score)
             currentPokemonIndex++
             getNextWord()
@@ -146,7 +145,6 @@ class GameViewModel(private val pokemonRepository: PokemonRepository) : ViewMode
                 pokemonShuffledList = shuffleList(apiPokemonList)
                 isPokemonListLoaded.postValue(true)
             } else {
-                Log.e("PokeLista", "La respuesta de la API es nula")
                 isPokemonListLoaded.postValue(false)
             }
         }

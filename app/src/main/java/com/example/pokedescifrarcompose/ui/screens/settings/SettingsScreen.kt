@@ -18,19 +18,19 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.pokedescifrarcompose.R
 import com.example.pokedescifrarcompose.data.controller.SoundManager
-import com.example.pokedescifrarcompose.data.viewmodel.SoundViewModel
+import com.example.pokedescifrarcompose.data.viewmodel.BottomBarViewModel
 import com.example.pokedescifrarcompose.ui.screens.PokeDescifrarUI
 import com.example.pokedescifrarcompose.ui.screens.appbars.BottomAppBarButton
 
 
 @Composable
-fun SettingsScreen(navigation: NavController, soundViewModel: SoundViewModel) {
+fun SettingsScreen(navigation: NavController, bottomBarViewModel: BottomBarViewModel) {
 
     val backButton: ImageVector = ImageVector.vectorResource(id = R.drawable.ic_back)
 
     PokeDescifrarUI(
         navigation = navigation,
-        soundViewModel = soundViewModel
+        bottomBarViewModel = bottomBarViewModel
     ) {
         Column(
             horizontalAlignment = Alignment.Start,
@@ -47,9 +47,9 @@ fun SettingsScreen(navigation: NavController, soundViewModel: SoundViewModel) {
             SettingsCheckbox(
                 text = stringResource(R.string.music_esp),
                 modifier = Modifier,
-                isChecked = soundViewModel.isMusicEnabled.value,
+                isChecked = bottomBarViewModel.isMusicEnabled.value,
                 onCheckedChange = { isEnabled ->
-                    soundViewModel.setMusicEnabled(isEnabled)
+                    bottomBarViewModel.setMusicEnabled(isEnabled)
                     if (isEnabled) {
                         SoundManager.toggleMusic(true)
                         SoundManager.playMusic(SoundManager.getCurrentPlayingSongResId())
@@ -59,8 +59,6 @@ fun SettingsScreen(navigation: NavController, soundViewModel: SoundViewModel) {
                     }
                 }
             )
-
-
             Divider(
                 color = Color.Black,
                 modifier = Modifier.width(3.dp)
@@ -70,9 +68,9 @@ fun SettingsScreen(navigation: NavController, soundViewModel: SoundViewModel) {
             SettingsCheckbox(
                 text = stringResource(R.string.sfx_esp),
                 modifier = Modifier,
-                isChecked = soundViewModel.isSoundEnabled.value,
+                isChecked = bottomBarViewModel.isSoundEnabled.value,
                 onCheckedChange = { isEnabled ->
-                    soundViewModel.setSoundEnabled(isEnabled)
+                    bottomBarViewModel.setSoundEnabled(isEnabled)
                     if (isEnabled) {
                         SoundManager.toggleSFX(true)
                     } else {
@@ -87,5 +85,5 @@ fun SettingsScreen(navigation: NavController, soundViewModel: SoundViewModel) {
 @Composable
 @Preview
 fun SettingsScreenPreview() {
-    SettingsScreen(navigation = rememberNavController(), soundViewModel = SoundViewModel())
+    SettingsScreen(navigation = rememberNavController(), bottomBarViewModel = BottomBarViewModel())
 }

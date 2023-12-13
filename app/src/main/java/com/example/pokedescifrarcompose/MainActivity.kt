@@ -12,7 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.pokedescifrarcompose.data.controller.SoundManager
 import com.example.pokedescifrarcompose.data.viewmodel.GameViewModel
-import com.example.pokedescifrarcompose.data.viewmodel.SoundViewModel
+import com.example.pokedescifrarcompose.data.viewmodel.BottomBarViewModel
 import com.example.pokedescifrarcompose.data.repositories.PokemonRepository
 import com.example.pokedescifrarcompose.ui.screens.about.AboutScreen
 import com.example.pokedescifrarcompose.ui.screens.game.GameScreen
@@ -22,7 +22,7 @@ import com.example.pokedescifrarcompose.ui.theme.PokeDescifrarComposeTheme
 
 class MainActivity : ComponentActivity() {
 
-    private val soundViewModel: SoundViewModel by viewModels()
+    private val bottomBarViewModel: BottomBarViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,20 +40,20 @@ class MainActivity : ComponentActivity() {
                     exitTransition = { ExitTransition.None },
                 ) {
                     composable("TitleScreen") {
-                        BackHandler(true) {}
-                        TitleScreen(navigation = navController, soundViewModel) 
+                        BackHandler(false) {}
+                        TitleScreen(navigation = navController, bottomBarViewModel)
                     }
                     composable("AboutScreen") {
-                        BackHandler(true) {}
+                        BackHandler(false) {}
                         AboutScreen(navigation = navController)
                     }
                     composable("SettingsScreen") {
-                        BackHandler(true) {}
-                        SettingsScreen(navigation = navController, soundViewModel)
+                        BackHandler(false) {}
+                        SettingsScreen(navigation = navController, bottomBarViewModel)
                     }
                     composable("GameScreen") {
-                        BackHandler(false) {}
-                        GameScreen(navigation = navController, soundViewModel = soundViewModel, gameViewModel = GameViewModel(PokemonRepository()))
+                        BackHandler(true) {}
+                        GameScreen(navigation = navController, bottomBarViewModel = bottomBarViewModel, gameViewModel = GameViewModel(PokemonRepository()))
                     }
                 }
             }

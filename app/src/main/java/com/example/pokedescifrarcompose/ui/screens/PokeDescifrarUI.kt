@@ -9,27 +9,21 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.pokedescifrarcompose.ui.screens.appbars.BottomBar
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import com.example.pokedescifrarcompose.data.controller.SoundManager
-import com.example.pokedescifrarcompose.data.viewmodel.SoundViewModel
+import com.example.pokedescifrarcompose.data.viewmodel.BottomBarViewModel
+import com.example.pokedescifrarcompose.ui.screens.appbars.BottomBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PokeDescifrarUI(
     navigation: NavController,
-    soundViewModel: SoundViewModel,
+    bottomBarViewModel: BottomBarViewModel,
     content: @Composable ()-> Unit
 ) {
-    var isMusicEnabled by remember { mutableStateOf(true) }
-    var isSoundEnabled by remember { mutableStateOf(true) }
 
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -38,10 +32,11 @@ fun PokeDescifrarUI(
         Scaffold(
             bottomBar = {
                 BottomBar(
-                    isMusicEnabled = soundViewModel.isMusicEnabled.value,
-                    isSoundEnabled = soundViewModel.isSoundEnabled.value,
+                    isMusicEnabled = bottomBarViewModel.isMusicEnabled.value,
+                    isSoundEnabled = bottomBarViewModel.isSoundEnabled.value,
+                    isAboutEnabled = bottomBarViewModel.isAboutEnabled.value,
                     onMusicToggleCLick = { isEnabled ->
-                        soundViewModel.setMusicEnabled(isEnabled)
+                        bottomBarViewModel.setMusicEnabled(isEnabled)
                         if (isEnabled) {
                             SoundManager.toggleMusic(true)
                             SoundManager.playMusic(SoundManager.getCurrentPlayingSongResId())
@@ -51,7 +46,7 @@ fun PokeDescifrarUI(
                         }
                     },
                     onSoundToggleClick = { isEnabled ->
-                        soundViewModel.setSoundEnabled(isEnabled)
+                        bottomBarViewModel.setSoundEnabled(isEnabled)
                         if (isEnabled) {
                             SoundManager.toggleSFX(true)
                         } else {

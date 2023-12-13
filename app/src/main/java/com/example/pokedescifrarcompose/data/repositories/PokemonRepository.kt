@@ -6,7 +6,6 @@ import com.example.pokedescifrarcompose.data.entities.PokemonType
 import com.example.pokedescifrarcompose.data.entities.Type
 import com.example.pokedescifrarcompose.service.PokeApiService
 import com.example.pokedescifrarcompose.service.RetrofitClient
-import retrofit2.Response
 
 class PokemonRepository {
     private val pokeApiService: PokeApiService = RetrofitClient.createService(PokeApiService::class.java)
@@ -47,7 +46,6 @@ class PokemonRepository {
                     }
                 }
             }
-                Log.e("PokeLista", "$pokemonList")
                 return pokemonList
 
         } catch (e: Exception) {

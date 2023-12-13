@@ -1,5 +1,6 @@
 package com.example.pokedescifrarcompose.ui.screens.about
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -14,6 +15,12 @@ fun AboutScreen(navigation: NavController) {
     var showPatchNotes by remember { mutableStateOf(true) }
     var showCredits by remember { mutableStateOf(false) }
 
+    BackHandler(
+        true
+    ) {
+        navigation.popBackStack()
+    }
+
     AboutUI(
         onPatchNotesButtonClick = {
             showPatchNotes = true
@@ -22,6 +29,9 @@ fun AboutScreen(navigation: NavController) {
         onCreditsButtonCLick = {
             showPatchNotes = false
             showCredits = true
+        },
+        onBackButtonClick = {
+            navigation.popBackStack()
         }
     ) {
 
